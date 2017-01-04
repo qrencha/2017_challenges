@@ -10,7 +10,7 @@ int bgHeight = bgWidth+50;
 Board myBoard;  // create my board
 
 void setup() {
-  frameRate(10); // frameRate 5 to 10 are slow enough to see the movement
+  frameRate(5); // frameRate 5 to 10 are slow enough to see the movement
   size(bgWidth, bgHeight);
   myBoard = new Board();         // Construct my Board
 
@@ -25,6 +25,11 @@ void draw() {
 }
 
 void mousePressed() {
+  println("Moused pressed");
+  int fx = int(random(1,11));
+  int fy = int(random(1,11));
+  println(fx + "x" + fy);
+  myBoard.shine(fx, fy);
   //winner = "no";
 }
 

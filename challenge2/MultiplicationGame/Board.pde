@@ -41,6 +41,11 @@ class Board {
       }
     }
   }
+  
+  void shine(int fx, int fy) {
+      textSize(16);
+        board[fx][fy].shineCell();
+  }
 }
 
 
