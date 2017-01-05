@@ -3,6 +3,9 @@ int numRowCol =11; // number of rows or columns
 int lastCell = numRowCol*numRowCol;
 int bgWidth = cellSide*numRowCol;
 int bgHeight = bgWidth+50;
+int fx, fy;
+boolean turn; // indicates if you are in a turn (true) or not (false)
+
 
 // ********************************
 // O B J E C T S
@@ -21,16 +24,25 @@ void setup() {
 void draw() {
   // Draw board every draw cycle
   myBoard.display();
-
+  if (turn){
+    myBoard.shine(0,fy);
+    myBoard.shine(fx,0);
+    myBoard.shine(fx, fy);
+  }
+//  int fx = int(random(1,11));
+//  int fy = int(random(1,11));
+//  println(fx + "x" + fy);
 }
 
 void mousePressed() {
   println("Moused pressed");
-  int fx = int(random(1,11));
-  int fy = int(random(1,11));
+  fx = int(random(1,11));
+  fy = int(random(1,11));
   println(fx + "x" + fy);
-  myBoard.shine(fx, fy);
-  //winner = "no";
+//  myBoard.shine(0,fy);
+//  myBoard.shine(fx,0);
+//  myBoard.shine(fx, fy);
+  turn = true;
 }
 
 
