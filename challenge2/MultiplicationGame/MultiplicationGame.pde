@@ -1,20 +1,22 @@
 int cellSide = 50; // cell side length
-int numRowCol =11; // number of rows or columns
+int numRowCol = 11; // number of rows or columns
 int lastCell = numRowCol*numRowCol;
 int bgWidth = cellSide*numRowCol;
 int bgHeight = bgWidth+50;
-int fx, fy;
+int fx, fy, product;
 boolean turn; // indicates if you are in a turn (true) or not (false)
+String input1="";
+String prodStr="";
+String feedBack="";
 
+void settings(){
+  size(bgWidth, bgHeight);
+}
 
-// ********************************
-// O B J E C T S
-// ********************************
-Board myBoard;  // create my board
+Board myBoard;  // create myBoard object
 
 void setup() {
   frameRate(5); // frameRate 5 to 10 are slow enough to see the movement
-  size(bgWidth, bgHeight);
   myBoard = new Board();         // Construct my Board
 
   // Initiate my Board, this includes layout, color and numbering
@@ -29,20 +31,42 @@ void draw() {
     myBoard.shine(fx,0);
     myBoard.shine(fx, fy);
   }
-//  int fx = int(random(1,11));
-//  int fy = int(random(1,11));
-//  println(fx + "x" + fy);
+
+  myBoard.displayFeedBack(feedBack);
+
 }
 
 void mousePressed() {
-  println("Moused pressed");
+  //println("Moused pressed");
   fx = int(random(1,11));
   fy = int(random(1,11));
-  println(fx + "x" + fy);
-//  myBoard.shine(0,fy);
-//  myBoard.shine(fx,0);
-//  myBoard.shine(fx, fy);
+  product = fx * fy;
+  //println(fx + "x" + fy);
+  //  myBoard.shine(0,fy);
+  //  myBoard.shine(fx,0);
+  //  myBoard.shine(fx, fy);
+ feedBack = "Try this!";
   turn = true;
+  
+  println("product is " + product);
 }
 
-
+void keyPressed(){
+  if (keyCode != ENTER){
+    input1 +=key;
+  }
+  else {
+    println(int(input1));
+    if(product == int(input1))
+    {
+      feedBack = "Good, mouse click";
+      println("Good");
+    }
+    else
+    {
+      feedBack = "Wrong, mouse click";
+      println("Wrong");
+    }
+    input1 = "";
+  }
+}

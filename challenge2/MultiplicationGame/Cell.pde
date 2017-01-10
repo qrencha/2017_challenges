@@ -31,5 +31,3 @@ class Cell {
     text(String.valueOf(cellN), x+cellS/2-10, y+cellS/2+5);   // cell number
   }
 }  
-
-
