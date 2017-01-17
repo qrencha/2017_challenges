@@ -23,12 +23,16 @@ class Board {
 
         if (factorColor) {
           cellColor = 100;
-        }
+          board[i][j] = new Cell(num, cellSide, cellColor, cellSide*j, i*50);
+
+      }
         else {
           cellColor = 210;
+          board[i][j] = new Cell(num, cellSide, cellColor, cellSide*j, i*50);
+
         }
 
-        board[i][j] = new Cell(num, cellSide, cellColor, cellSide*j, i*50);
+        //board[i][j] = new Cell(num, cellSide, cellColor, cellSide*j, i*50);
       }
     }
   }
@@ -45,6 +49,11 @@ class Board {
   void shine(int fx, int fy) {
       textSize(16);
         board[fx][fy].shineCell();
+  }
+  
+  void noShine(int fx, int fy) {
+      textSize(16);
+        board[fx][fy].noShineCell();
   }
   
   void displayFeedBack(String fB){

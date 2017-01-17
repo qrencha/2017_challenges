@@ -18,7 +18,7 @@ class Cell {
     stroke(0);
     fill(10,10,cellC);
     rect(x, y, cellS, cellS);   // cell rectangle
-//    fill(255);
+    fill(255);
     text(String.valueOf(cellN), x+cellS/2-10, y+cellS/2+5);   // cell number
   }
   
@@ -29,5 +29,14 @@ class Cell {
     fill(55);
     textSize(20);
     text(String.valueOf(cellN), x+cellS/2-10, y+cellS/2+5);   // cell number
+  }
+  
+  void noShineCell() {
+    stroke(0);
+    fill(200,200,cellC);
+    rect(x, y, cellS, cellS);   // cell rectangle
+    //fill(55);
+    //textSize(20);
+    //text(String.valueOf(cellN), x+cellS/2-10, y+cellS/2+5);   // cell number
   }
 }  

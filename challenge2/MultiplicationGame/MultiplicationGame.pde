@@ -29,7 +29,7 @@ void draw() {
   if (turn){
     myBoard.shine(0,fy);
     myBoard.shine(fx,0);
-    myBoard.shine(fx, fy);
+    myBoard.noShine(fx, fy);
   }
 
   myBoard.displayFeedBack(feedBack);
