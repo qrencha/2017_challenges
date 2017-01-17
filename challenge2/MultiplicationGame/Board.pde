@@ -49,9 +49,9 @@ class Board {
   
   void displayFeedBack(String fB){
     fill(0);
-    rect(bgWidth/2-cellSide,bgHeight-cellSide+4,160,40); // feedback square
+    rect(bgWidth/2-2*cellSide,bgHeight-cellSide+4,270,40); // feedback square
     fill(255);
     textSize(18);
-    text(fB,bgWidth/2-cellSide+8,bgHeight-cellSide/2+8 ); // show the feedBack
+    text(fB,bgWidth/2-2*cellSide+8,bgHeight-cellSide/2+8 ); // show the feedBack
   }
 }

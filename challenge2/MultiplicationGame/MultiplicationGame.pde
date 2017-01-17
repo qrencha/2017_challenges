@@ -45,7 +45,7 @@ void mousePressed() {
   //  myBoard.shine(0,fy);
   //  myBoard.shine(fx,0);
   //  myBoard.shine(fx, fy);
- feedBack = "Try this!";
+ feedBack = "key in the product + <enter>";
   turn = true;
   
   println("product is " + product);
@@ -59,12 +59,12 @@ void keyPressed(){
     println(int(input1));
     if(product == int(input1))
     {
-      feedBack = "Good, mouse click";
+      feedBack = "Good, mouse click for next";
       println("Good");
     }
     else
     {
-      feedBack = "Wrong, mouse click";
+      feedBack = "Wrong, mouse click for next";
       println("Wrong");
     }
     input1 = "";
