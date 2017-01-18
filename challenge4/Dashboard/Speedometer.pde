@@ -16,15 +16,15 @@ class Speedometer{
       float multiAngle = map(multiple,0,MAX_SPEED,(PI-QUARTER_PI),(TWO_PI+QUARTER_PI));
       translate(width/2+110*cos(multiAngle),height/2+110*sin(multiAngle));
       rotate(multiAngle+QUARTER_PI);
-      line(-10,10,0,0);
+      line(-10,10,0,0);  // division lines
       popMatrix();
     }
 
 
-    // gauge needle
+    // gauge
     fill(255);
     ellipse(width/2,height/2,10,10);
-    line(width/2,height/2,cos(0)+110,sin(0)+110);
+    strokeWeight(1);
     
     // speeds in multiples of 10
     for (int multiple=0; multiple<=MAX_SPEED; multiple +=10){
@@ -36,19 +36,12 @@ class Speedometer{
       text(str(multiple),0,0);
       popMatrix();
     }
-    
-    
-    //for (int multiple=0; multiple<=MAX_SPEED; multiple +=10){
-    //  textSize(18);
-    //  float multiAngle = map(multiple,0,MAX_SPEED,(PI-QUARTER_PI),(TWO_PI+QUARTER_PI));
-    //  //println("multiAngle = " + multiAngle);
-    //  text(str(multiple),width/2-10+80*cos(multiAngle), height/2+80*sin(multiAngle));
-    //}  
   }
   
-  float moveNeedle(){
+  void moveNeedle(float _speed){
     // temporary input using the seconds from time
-    float s = map(second(), 0, 60, 0, TWO_PI);
-    return s;
+    strokeWeight(3);
+    float ang = map(_speed, 0, 80, (PI-QUARTER_PI),(TWO_PI+QUARTER_PI));
+    line(width/2,height/2,cos(ang)*100+width/2,sin(ang)*100+height/2);
   }
 }
