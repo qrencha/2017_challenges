@@ -1,6 +1,12 @@
 class FuelGauge{
 
+  int level;
+  
   FuelGauge(){
+    level = 100;
+  }
+  
+  void displayFG(){
     stroke(255);
     noFill();
     rectMode(CENTER);

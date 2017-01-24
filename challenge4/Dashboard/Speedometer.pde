@@ -1,8 +1,11 @@
 class Speedometer{
-  int MAX_SPEED = 80; 
+  int MAX_SPEED; 
 
   Speedometer(){
+    MAX_SPEED = 80;
 
+  }
+  void displaySM(){
     stroke(255);
     // gauge window
     noFill();
@@ -41,6 +44,7 @@ class Speedometer{
   void moveNeedle(float _speed){
     // temporary input using the seconds from time
     strokeWeight(3);
+    stroke(250,250,0);
     float ang = map(_speed, 0, 80, (PI-QUARTER_PI),(TWO_PI+QUARTER_PI));
     line(width/2,height/2,cos(ang)*100+width/2,sin(ang)*100+height/2);
   }
