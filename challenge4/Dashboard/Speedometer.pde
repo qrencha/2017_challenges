@@ -1,8 +1,8 @@
 class Speedometer{
   int MAX_SPEED; 
 
-  Speedometer(){
-    MAX_SPEED = 80;
+  Speedometer(int _maxSpeed){
+    MAX_SPEED = _maxSpeed;
 
   }
   void displaySM(){

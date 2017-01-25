@@ -14,11 +14,12 @@ class Odometer{
     //text("00000",width/2-28, height/2+68);
   }
   int getOdometer(){
-    println("meter is " + this.meter);
+    //println("meter is " + this.meter);
     return this.meter;
   }
   
   void setOdometer(int _meter){
     this.meter += _meter;
+    //println("meter is " + this.meter);
   }
 }
