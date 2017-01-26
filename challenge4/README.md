@@ -1,3 +1,3 @@
 Car Dashboard with speedometer, odometer and fule gauge.
 
-![image](https://cloud.githubusercontent.com/assets/11010268/21989242/c7cab92a-dbcf-11e6-8dd5-1a715b3accea.png)
+![image](https://cloud.githubusercontent.com/assets/11010268/22340034/aac85532-e3b1-11e6-9b03-bd3ff3c13989.png)
