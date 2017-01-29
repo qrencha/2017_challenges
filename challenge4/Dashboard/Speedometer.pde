@@ -1,5 +1,5 @@
 class Speedometer{
-  int MAX_SPEED; 
+  final int MAX_SPEED; 
 
   Speedometer(int _maxSpeed){
     MAX_SPEED = _maxSpeed;

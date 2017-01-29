@@ -4,9 +4,12 @@ FuelGauge fg;
 float speed = 0.0;
 float sqspi = 0.0; // Squared Initial Speed
 float sqspf = 0.0; // Squared Final Speed
-float distance = 0.0;
+int distance = 0;
 float inc = 0.1;  // Servers to increase speed, somewhat like an acceleration
 boolean keyReleased = false;
+boolean mouseWheelMoved = false;
+float e = 0.0;
+int m = 0;
 
 void setup() {
   size(400, 300);
@@ -23,33 +26,37 @@ void draw() {
   som.displaySM();
 
   //Get Odometer reading
-  int m = odo.getOdometer();
-  println("distance is " + m);
+  m = odo.getOdometer();
+  //println("distance is " + m);
   text(m,width/2-28, height/2+68);
 
-  if(keyPressed){
+  if((mouseWheelMoved)){
     sqspi = speed * speed;
-    speed = speed + inc;
+    speed = speed + e;
     sqspf = speed * speed;
     //println("sqspi " + sqspi);
     //println("sqspf " + sqspf);
-    distance = ((sqspf - sqspi)/(2*inc));
-    odo.setOdometer(int(distance));
-    println("speed is " + int(speed));
-    if((speed >= 80) || (speed <= 0))
-      inc = -1*inc;
+    //println("speed is " + int(speed));
+    mouseWheelMoved = false;
   }
-  if(keyReleased){
-    sqspi = speed * speed;
-    speed = speed - inc*1.1;
-    sqspf = speed * speed;
-    println("sqspi " + sqspi);
-    println("sqspf " + sqspf);
-    distance = abs(((sqspf - sqspi)/(2*inc)));
-    odo.setOdometer(int(distance));
-  }
-  if((keyReleased) && (speed <= 0)){
+  
+  if(speed <= 0){
     speed = 0;
+  }
+  else if ((speed > 0) && (speed <= 80)) {
+    if (speed > 1){
+      distance = int(abs((sqspf - sqspi)/(2*e)));
+
+    }
+    else if (speed == 1){
+      distance = 1;
+    }
+
+    odo.setOdometer((distance));
+    println("speed is " + int(speed));
+  }
+  else if(speed >= 80){
+    speed = 80;
   }
   
   som.moveNeedle(speed);
@@ -62,4 +69,10 @@ void keyPressed(){
 void keyReleased(){
   keyReleased = true;
   println("Released");
+}
+
+void mouseWheel(MouseEvent event){
+  e = event.getCount();
+  mouseWheelMoved = true;
+  println(e);
 }

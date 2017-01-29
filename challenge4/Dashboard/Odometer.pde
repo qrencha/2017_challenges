@@ -1,6 +1,7 @@
 class Odometer{
 
   int meter;
+  final int MAX_DIGITS = 99999;
 
   Odometer(){
     meter = 0;
@@ -19,7 +20,11 @@ class Odometer{
   }
   
   void setOdometer(int _meter){
-    this.meter += _meter;
-    //println("meter is " + this.meter);
+
+      this.meter += _meter;
+      //println("meter is " + this.meter);
+      if (this.meter >= MAX_DIGITS){
+        this.meter = 0;
+      }
   }
 }
