@@ -12,6 +12,7 @@ float e = 0.0;
 int m = 0;
 
 void setup() {
+  frameRate(10);
   size(400, 300);
   odo = new Odometer();
   fg = new FuelGauge();
@@ -22,13 +23,17 @@ void setup() {
 void draw() {
   background(0);
   odo.displayOdo();
-  fg.displayFG();
   som.displaySM();
+  
+  if (fg.displayFG(m)){
+    speed = speed - 1;
+  }    
 
   //Get Odometer reading
   m = odo.getOdometer();
+  String sn = nf(m, 5);
   //println("distance is " + m);
-  text(m,width/2-28, height/2+68);
+  text(sn,width/2-28, height/2+68);
 
   if((mouseWheelMoved)){
     sqspi = speed * speed;
@@ -51,9 +56,10 @@ void draw() {
     else if (speed == 1){
       distance = 1;
     }
-
+    
     odo.setOdometer((distance));
-    println("speed is " + int(speed));
+      
+    //println("speed is " + int(speed));
   }
   else if(speed >= 80){
     speed = 80;
@@ -74,5 +80,5 @@ void keyReleased(){
 void mouseWheel(MouseEvent event){
   e = event.getCount();
   mouseWheelMoved = true;
-  println(e);
+  //println(e);
 }
