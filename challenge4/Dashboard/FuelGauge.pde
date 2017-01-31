@@ -20,13 +20,15 @@ class FuelGauge{
     noStroke();
     fill(255,250,0);
     
-    gPm = _distance/10;
-    //println("gPm is " + gPm);
-    //println("level is " + level);
-    if ((gPm % 10 == 0) && (gPm != 0)){
-      level = level + 1;
-      if (level == 100){
-        Empty = true;
+    if (!Empty){
+      gPm = _distance/10;
+      //println("gPm is " + gPm);
+      //println("level is " + level);
+      if ((gPm % 10 == 0) && (gPm != 0)){
+        level = level + 1;
+        if (level == 100){
+          Empty = true;
+        }
       }
     }
     //println("guageH-level is " + str(guageH-level));
