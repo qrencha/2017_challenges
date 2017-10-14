@@ -10,13 +10,14 @@ boolean keyReleased = false;
 boolean mouseWheelMoved = false;
 float e = 0.0;
 int m = 0;
+int MAX_SPEED = 80;
 
 void setup() {
   frameRate(10);
   size(400, 300);
   odo = new Odometer();
   fg = new FuelGauge();
-  som = new Speedometer(80);
+  som = new Speedometer(MAX_SPEED);
 
 }
 
@@ -61,8 +62,8 @@ void draw() {
       
     //println("speed is " + int(speed));
   }
-  else if(speed >= 80){
-    speed = 80;
+  else if(speed >= MAX_SPEED){
+    speed = MAX_SPEED;
   }
   
   som.moveNeedle(speed);
